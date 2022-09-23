@@ -1,0 +1,56 @@
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="czerwony">czerwony</button>
+    <button id="zielony">niebieski</button>
+    <button id="niebieski">zielony</button>
+    <button id="losowanie">Losuj</button>
+    <ol></ol>
+    <script>
+      const czerwony = document.querySelector("#czerwony");
+      const zielony = document.querySelector("#zielony");
+      const niebieski = document.querySelector("#niebieski");
+      const btn = document.querySelector("#losowanie");
+      const ol = document.querySelector("ol");
+      const tab = new Array(
+        "Mateusz",
+        "Bartek",
+        "Szymon",
+        "Maks",
+        "Pawel",
+        "Dawid",
+        "Kacper",
+        "Robert",
+        "Mikolaj",
+        "Tomek"
+      );
+
+      btn.addEventListener("click", function () {
+        const li = document.createElement("li");
+        ol.appendChild(li);
+        const loso = Math.floor(Math.random() * tab.length);
+        li.innerHTML = tab[loso];
+        li.addEventListener("click", function () {
+          this.remove();
+        });
+
+        czerwony.addEventListener("click", function () {
+          li.style.backgroundColor = "red";
+        });
+        zielony.addEventListener("click", function () {
+          li.style.backgroundColor = "blue";
+        });
+        niebieski.addEventListener("click", function () {
+          li.style.backgroundColor = "green";
+        });
+      });
+
+      console.log(tab);
+    </script>
+  </body>
+</html>
